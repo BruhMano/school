@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+    {% block content %}
+        {% load static %}
+        
+        <nav class="navbar">
+            <a href="{% url 'index' %}" class="nav-item"><i class="fas fa-newspaper"></i> Newsfeed</a><br>
+            {% if request.user.is_authenticated %}
+                <a href="/user/{{request.user.id}}" class="nav-item"><i class="fas fa-user"></i> Profile</a><br>
+            {% endif %}    
+            <a href="" class="nav-item"><i class="fas fa-heart"></i> Favorites</a><br>
+            <a href="" class="nav-item"><i class="fas fa-cogs"></i> Settings</a><br>
+        </nav>
+        {% for post in posts %}
+            <div class="post">
+                <img class="post-img" src='{{ post.img.url }}'>
+                <div class="post-text">
+                    <a class="post-title" href="/post/{{post.id}}">{{ post.title }}</a><br><hr>
+                    <div class="post-text-height">{{ post.text }}</div>
+                    <a href="/user/{{ post.author.id }}/" class="author">{{ post.author }}</a><i class="date">{{ post.pub_date }}</i>
+                </div><br>
+            </div>
+        {% endfor %}
+    {% endblock %}    

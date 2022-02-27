@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+    {% block content %}
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'poststyle.css' %}">
+            <div class="post">
+                <img src="{{ post.img.url }}" class="post-image">
+                <span class="title">{{post.title}}</span>
+                <div class="text">{{post.text}}</div>
+                <a class="name" href="/user/{{ post.author.id }}">{{post.author}}</a>
+                <i class="post-date">{{post.pub_date}}</i>
+            </div>
+    {% endblock %}

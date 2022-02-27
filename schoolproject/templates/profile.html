@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+    {% block content %}
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'poststyle.css' %}">
+        <div class="flex">
+            <nav class="navbar">
+                <a href="{% url 'index' %}" class="nav-item"><i class="fas fa-newspaper"></i> Newsfeed</a><br>
+                <a href="" class="nav-item"><i class="fas fa-user"></i> Profile</a><br>
+                <a href="" class="nav-item"><i class="fas fa-heart"></i> Favorites</a><br>
+                <a href="" class="nav-item"><i class="fas fa-cogs"></i> Settings</a><br>
+            </nav>
+            <img class="user-image" src='{{ user.image.url }}'>
+            <div class="user">
+                <div class="post-text">
+                    <span class="post-title" href="/user/{{user.username}}">{{ user.username }}</span><br>
+                    <div class="post-text-height">
+                        <span>{{ user.desc }}</span><br><br>
+                        <i class="info">
+                            Name: {{user.first_name}}<br>
+                            Surname: {{user.last_name}}<br>
+                            E-mail: {{user.email}}
+                        </i>
+                    </div>
+                </div><br>
+            </div>
+        </div>
+        {% for post in posts %}
+            <div class="user-post">
+                <img class="post-img" src='{{ post.img.url }}'>
+                <div class="post-text">
+                    <a class="post-title" href="/post/{{post.id}}">{{ post.title }}</a><br><hr>
+                    <div class="post-text-height">{{ post.text }}</div>
+                    <i class="date">{{ post.pub_date }}</i>
+                </div><br>
+            </div>
+        {% endfor %}
+
+    {% endblock %} 

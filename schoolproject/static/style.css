@@ -1,0 +1,281 @@
+body{
+    font-family: 'Shippori Antique', sans-serif;
+    background-color: #abedd8;
+    color: #48466d;
+    margin-bottom: 2%;
+}
+
+hr{
+    color: #48466d;
+}
+
+a{
+    text-decoration: none;
+    color: #48466d;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.link-center{
+    position: relative;
+    top: -40%;
+}
+
+.container{
+    max-width: 1170px;
+    margin: 2% 10% 10% 10%;
+}
+
+.header{
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#burger{
+    display: none;
+    font-size: 25px;
+    color: #48466d;
+}
+
+.logo{
+    font-size: 25px;
+    font-weight: bold;
+    line-height: 30px;
+}
+
+.signup{
+    display: inline-block;
+}
+
+.example{
+    padding-bottom: 6px;
+    padding-left: 3px;
+    padding-right: 3px;
+    border: 3px solid #46cdcf;
+}
+
+.description{
+    font-size: 13px;
+}
+
+.img{
+    height: 100%;
+    
+}
+
+.navbar{
+    display: inline-block;
+    margin-top: 5%;
+    font-size: 25px;
+    font-weight: bold;
+    line-height: 45px;
+}
+
+a{
+    color: #48466d;
+    transition: linear 0.2s;
+}
+
+a:hover{
+    color: #3d84a8;
+    transition: linear 0.2s;
+}
+
+.post{
+    display: inline-flex;
+    float: right;
+    width: 77%;
+    height: 300px;
+    background-color: white;
+    margin-top: 2.5%;
+    margin-bottom: 2.5%;
+    box-shadow: -23px 19px 20px 2px rgba(72,70,109, 0.1);
+}
+
+.first{
+    margin-top: 5%;
+}
+
+.post-text{
+    width: auto;
+    font-size: 15px;
+    display: inline-block;
+    word-wrap: break-word;
+    overflow: hidden;
+    margin: 2% 1% 1% 3%;
+}
+
+.post-text-height{
+    height: 75%;
+    overflow: hidden;
+}
+
+.post-img{
+    display: inline-block;
+    max-width: 45%;
+    height: 100%;
+}
+
+.post-title{
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.interesting-button{
+    height: 10%;
+    position: fixed;
+    bottom: 2%;
+    right: 2%;
+    
+}
+
+#interesting-button-img{
+    height: 100%;
+}
+
+.author{
+    font-size: 13px;
+}
+
+.date{
+    float: right;
+    font-weight: bold;
+    padding-right: 2%;
+    padding-top: 1%;
+}
+
+
+@media (max-width: 860px){
+    .post{
+        width: 70%;
+        height: 200px;
+    }
+
+    .interesting-button{
+        height: 8%;
+    }
+    
+    .post-text-height{
+        height: 65%;
+        overflow: hidden;
+    }
+}
+@media (max-width: 700px){
+    .post{
+        width: 100%;
+        height: 200px;
+    }
+
+    
+    .interesting-button{
+        height: 7%;
+    }
+    
+    #burger{
+        display: inline-block;
+    }
+    
+    .navbar{
+        height: 0;
+        font-size: 0;
+    }
+    
+    .active{
+        height: 100px;
+        font-size: 25px;
+        transition: 0.1s linear;
+    }
+}
+@media (max-width: 500px){
+    .post{
+        height: 150px;
+    }
+    
+    .post-text{
+        font-size: 12px;
+    }
+
+    .post-text-height{
+        height: 55%;
+        overflow: hidden;
+    }
+    
+    .post-title{
+        font-size: 20px;
+    }
+    
+    .link-center{
+        display: none;
+    }
+    
+    .description{
+        display: none;
+    }
+    
+    .navbar{
+        height: 0;
+        font-size: 0;
+    }
+    
+    .active{
+        height: 100px;
+        font-size: 25px;
+        transition: 0.1s linear;
+    }
+    
+    #burger{
+        display: inline-block;
+    }
+
+    .author{
+        font-size: 10px;
+    }
+    
+}
+@media (max-width: 375px){
+    .logo{
+        font-size: 18px;
+    }
+    
+    .navbar{
+        font-size: 18px;
+        line-height: 25px;
+    }
+    
+    .post-img{
+        width: 50%;
+    }
+    
+    .post{
+        height: 100px;
+    }
+    
+    .post-title{
+        font-size: 18px;
+    }
+    
+    .post-text{
+        font-size: 10px;
+    }
+
+    .post-text-height{
+        height: 50%;
+        overflow: hidden;
+    }
+    
+    #burger{
+        display: inline-block;
+    }
+    
+    .navbar{
+        height: 0;
+        font-size: 0%;
+    }
+    
+    .active{
+        height: 100px;
+        font-size: 18px;
+        transition: 0.1s linear;
+    }
+}

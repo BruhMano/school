@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'fontawesome-free-5.15.4-web/css/all.min.css' %}">
+    <script defer src="{% static 'fontawesome-free-5.15.4-web/js/all.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="icon" href="{% static 'logo.png' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shippori+Antique&display=swap" rel="stylesheet">
+    <title>Example Blog</title>
+</head>
+    <body>
+        <div class="container">
+            <header class="header">
+                <span id="burger"><i class="fas fa-bars"></i></span>
+                <a class="logo" href="{% url 'index' %}"><span class="example">Example</span> Blog<br><span class="description">How work your favorite sites?</span></a>
+                <a href="#" class="signup"><span class="link-center">Sign Up/Log in</span><img src="{% static 'icon.png' %}" alt="User" class="img"></a>
+            </header>
+            <a href="/admin/" class="interesting-button"><img src="{% static 'button2.png' %}" alt="interesting-button" id="interesting-button-img"></a>
+            <nav class="navbar">
+                <a href="{% url 'index' %}" class="nav-item"><i class="fas fa-newspaper"></i> Newsfeed</a><br>
+                {% if request.user.is_authenticated %}
+                    <a href="/user/{{request.user.id}}" class="nav-item"><i class="fas fa-user"></i> Profile</a><br>
+                {% endif %}    
+                <a href="" class="nav-item"><i class="fas fa-heart"></i> Favorites</a><br>
+                <a href="" class="nav-item"><i class="fas fa-cogs"></i> Settings</a><br>
+            </nav>
+            {% for post in posts %}
+                <div class="post">
+                    <img class="post-img" src='{{ post.img.url }}'>
+                    <div class="post-text">
+                        <a class="post-title" href="/post/{{post.id}}">{{ post.title }}</a><br><hr>
+                        <div class="post-text-height">{{ post.text }}</div>
+                        <a href="/user/{{ post.author.id }}/" class="author">{{ post.author }}</a><i class="date">{{ post.pub_date }}</i>
+                    </div><br>
+                </div>

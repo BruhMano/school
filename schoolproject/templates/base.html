@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'fontawesome-free-5.15.4-web/css/all.min.css' %}">
+    <script defer src="{% static 'fontawesome-free-5.15.4-web/js/all.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="icon" href="{% static 'logo.png' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shippori+Antique&display=swap" rel="stylesheet">
+    <title>Example Blog</title>
+</head>
+    <body>
+        <div class="container">
+            <header class="header">
+                <span id="burger"><i class="fas fa-bars"></i></span>
+                <a class="logo" href="{% url 'index' %}"><span class="example">Example</span> Blog<br><span class="description">How work your favorite sites?</span></a>
+                <a href="#" class="signup"><span class="link-center">Sign Up/Log in</span><img src="{% static 'icon.png' %}" alt="User" class="img"></a>
+            </header>
+            <a href="/admin/" class="interesting-button"><img src="{% static 'button2.png' %}" alt="interesting-button" id="interesting-button-img"></a>
+            {% block content %}
+    
+            {% endblock %}
+        </div>
+        <script>
+            (function(){
+                let btn = document.getElementById('interesting-button-img');
+                let burger = document.getElementById('burger');
+                let find = false;
+                let navbarClasses = document.getElementsByClassName('navbar')[0].classList;
+                btn.addEventListener('mouseenter', function(){
+                    setTimeout(() => {btn.setAttribute('src',"{% static 'button3.png' %}");}, 100);
+                });
+                btn.addEventListener('mouseleave', function(){
+                    setTimeout(() => {btn.setAttribute('src',"{% static 'button2.png' %}");}, 100);
+                });
+                burger.addEventListener('click', function(){
+                    if (navbarClasses[1]){
+                        navbarClasses.remove('active');
+                    }
+                    else{
+                        navbarClasses.add('active');
+                    }
+                })
+            })();
+        </script>
+    </body>
+</html>
