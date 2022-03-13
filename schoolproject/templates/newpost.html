@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<form method="post" action="{% url 'newpost' %}" id="newpost" enctype="multipart/form-data">
+    {% csrf_token %}
+    <fieldset class="signup-form">
+      <legend>New post</legend>
+      <p><input type="text" name="title" maxlength="100" required="" id="id_title"></p>
+      <p><textarea name="text" cols="40" rows="10" required="" id="id_text"></textarea></p>
+      <p><input type="file" name="img" accept="image/*" required="" id="id_img"></p>
+      <p><button type="submit" form="newpost">Post</button></p><br>
+    </fieldset>
+</form>
+{% endblock %}

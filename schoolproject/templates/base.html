@@ -20,7 +20,11 @@
             <header class="header">
                 <span id="burger"><i class="fas fa-bars"></i></span>
                 <a class="logo" href="{% url 'index' %}"><span class="example">Example</span> Blog<br><span class="description">How work your favorite sites?</span></a>
-                <a href="#" class="signup"><span class="link-center">Sign Up/Log in</span><img src="{% static 'icon.png' %}" alt="User" class="img"></a>
+                {% if user.is_authenticated %}
+                <a href="/user/{{request.user.id}}" class="signup"><span class="link-center">{{ user.username }} </span><img src="{{ user.image.url }}" alt="User" class="img"></a>
+                {% else %}
+                <a href="{% url 'signup' %}" class="signup"><span class="link-center">Sign Up/Log in</span><img src="{% static 'icon.png' %}" alt="User" class="img"></a>
+                {% endif %}
             </header>
             <a href="/admin/" class="interesting-button"><img src="{% static 'button2.png' %}" alt="interesting-button" id="interesting-button-img"></a>
             {% block content %}

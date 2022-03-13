@@ -7,7 +7,6 @@
                 <a href="{% url 'index' %}" class="nav-item"><i class="fas fa-newspaper"></i> Newsfeed</a><br>
                 <a href="" class="nav-item"><i class="fas fa-user"></i> Profile</a><br>
                 <a href="" class="nav-item"><i class="fas fa-heart"></i> Favorites</a><br>
-                <a href="" class="nav-item"><i class="fas fa-cogs"></i> Settings</a><br>
             </nav>
             <img class="user-image" src='{{ user.image.url }}'>
             <div class="user">
@@ -30,6 +29,13 @@
                 <div class="post-text">
                     <a class="post-title" href="/post/{{post.id}}">{{ post.title }}</a><br><hr>
                     <div class="post-text-height">{{ post.text }}</div>
+                    {% if user.is_authenticated %}
+                      {% if post.is_liked_by_current_user %}
+                          <div class="rate" style="color: #ED002F;">{{post.likes}} <a href="../../like/add/{{post.id}}/{{user.id}}/#{{post.id}}"><i class="fas fa-heart" style="font-size: 16pt;color: #ED002F;"></i></a></div>
+                      {% else %}
+                          <div class="rate">{{post.likes}} <a href="../../like/add/{{post.id}}/{{user.id}}/#{{post.id}}"><i class="fas fa-heart" style="font-size: 16pt;"></i></a></div>
+                      {% endif %}
+                    {% endif %}
                     <i class="date">{{ post.pub_date }}</i>
                 </div><br>
             </div>

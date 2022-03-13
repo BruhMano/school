@@ -61,7 +61,7 @@ a{
 
 .img{
     height: 100%;
-    
+    border-radius: 50%;
 }
 
 .navbar{
@@ -278,4 +278,68 @@ a:hover{
         font-size: 18px;
         transition: 0.1s linear;
     }
+}
+
+.signup-form{
+    position: relative;
+    width: 70%;
+    margin-top: 5%;
+    margin-left: 15%;
+    padding: 3%;
+    font-size: 14pt;
+    text-align: center;
+    display: inline-flex;
+    flex-direction: column;
+}
+
+input{
+    width: 70%;
+}
+
+input[type='text'], input[type='password'], input[type='email'], textarea{
+    background-color: #46cdcf;
+    opacity: 0.85;
+    font-size: 14pt;
+    padding: 0.5% 0 0.5% 1%;
+    color: #3d84a8;
+    width: 70%;
+
+}
+
+::placeholder {
+    color: rgb(124, 123, 151);
+    opacity: 1;
+    border: none;
+  }
+
+input[type='file']{
+    font-size: 14pt;
+    padding: 0.5% 0 0.5% 1%;
+    color: #48466d;
+    cursor: pointer;
+}
+
+button{
+    color: #48466d;
+    background-color: #46cdcf;
+    font-size: 14pt;
+    padding: 1%;
+    opacity: 0.7;
+}
+button:hover{
+    opacity: 0.9;
+    cursor: pointer;
+}
+
+.isnt-registred{
+    font-size: 10pt;
+    margin-top: -2%;
+    text-align: center;
+}
+
+.rate{
+    display: inline-block;
+    float: right;
+    color: #48466d;
+    font-size: 16pt;
 }
